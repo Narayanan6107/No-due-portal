@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Book Input</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-image: url("https://c4.wallpaperflare.com/wallpaper/526/8/1002/library-interior-interior-design-books-wallpaper-preview.jpg") no-repeat;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    .container {
+        width: 100%;
+        max-width: 400px;
+        background-color: #fff;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease-in-out;
+    }
+    .container:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    h2 {
+        color: #495057;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+    label {
+        color: #495057;
+        margin-bottom: 8px;
+        display: block;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 16px;
+        border: 2px solid #ced4da;
+        border-radius: 5px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+    }
+    input[type="text"]:focus {
+        outline: none;
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+    input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Book Input Form</h2>
+    <form action="#">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your name...">
+        
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" name="userId" placeholder="Your user ID...">
+        
+        <label for="bookName">Book ID:</label>
+        <input type="text" id="bookName" name="bookName" placeholder="Book ID...">
+        
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>
