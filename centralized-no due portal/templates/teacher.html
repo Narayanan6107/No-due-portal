@@ -4,60 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
             margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            background-color: #fff;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
             color: #333;
         }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border: 1px solid #DDDDDD;
+            backdrop-filter: blur(10px); /* Blurred background effect */
+        }
+        h2 {
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-align: center;
+            color: #555;
+        }
         form {
-            max-width: 500px;
-            margin: 0 auto;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        form:last-of-type {
+            margin-bottom: 0;
         }
         label {
             display: block;
-            margin-bottom: 10px;
-            color: #555;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        input[type="text"], button {
+            width: calc(100% - 32px); /* Adjusted width to account for padding */
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            transition: all 0.3s ease;
         }
         input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            color: #666;
+        }
+        input[type="text"]:focus {
+            border-color: #5b9bd5;
+            box-shadow: 0 0 0 3px rgba(91, 155, 213, 0.25);
+            outline: none;
         }
         button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
             font-size: 16px;
+            color: #fff;
+            background-color: #5b9bd5;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         button:hover {
-            background-color: #45a049;
-        }
-        .result {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            background-color: #4a8bc2;
         }
     </style>
 </head>
@@ -66,25 +82,33 @@
 <div class="container">
     <h2>Add Assignment Column</h2>
     <form action="/teacher" method="post">
-        <label for="assignment_name">Assignment Name:</label>
-        <input type="text" id="assignment_name" name="assignment_name" required>
+        <div>
+            <label for="assignment_name">Assignment Name:</label>
+            <input type="text" id="assignment_name" name="assignment_name" required>
+        </div>
         <button type="submit">Add Assignment</button>
     </form>
 
     <h2>Update Assignment</h2>
     <form action="/teacher" method="post">
-        <label for="column_name">Column Name:</label>
-        <input type="text" id="column_name" name="column_name" required>
-        <label for="roll_no">Roll Number:</label>
-        <input type="text" id="roll_no" name="roll_no" required>
-        <button type="submit">Update Assignment status</button>
-    </form>
-    <form action="" method="post">
-        <label for="roll_no_change">Roll Number:</label>
-        <input type="text" id="roll_no_change" name="roll_no_change" required>
-        <button type="submit">Authorize</button>
+        <div>
+            <label for="column_name">Column Name:</label>
+            <input type="text" id="column_name" name="column_name" required>
+        </div>
+        <div>
+            <label for="roll_no">Roll Number:</label>
+            <input type="text" id="roll_no" name="roll_no" required>
+        </div>
+        <button type="submit">Update Assignment Status</button>
     </form>
 
+    <form action="/change" method="post">
+        <div>
+            <label for="roll_no_change">Roll Number:</label>
+            <input type="text" id="roll_no_change" name="roll_no_change" required>
+        </div>
+        <button type="submit">Authorize</button>
+    </form>
 </div>
 
 </body>

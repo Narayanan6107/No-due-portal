@@ -1,87 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>User Book Input</title>
-<style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-image: url("https://c4.wallpaperflare.com/wallpaper/526/8/1002/library-interior-interior-design-books-wallpaper-preview.jpg") ;
-        margin: 0;
-        background-size:cover;
-        padding: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-    }
-    .container {
-        width: 100%;
-        max-width: 400px;
-        background-color: #fff;
-        padding: 25px;
-        border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease-in-out;
-    }
-    .container:hover {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-    h2 {
-        color: #495057;
-        text-align: center;
-        margin-bottom: 24px;
-    }
-    label {
-        color: #495057;
-        margin-bottom: 8px;
-        display: block;
-    }
-    input[type="text"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 16px;
-        border: 2px solid #ced4da;
-        border-radius: 5px;
-        box-sizing: border-box;
-        transition: border-color 0.3s;
-    }
-    input[type="text"]:focus {
-        outline: none;
-        border-color: #80bdff;
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-    }
-    input[type="submit"] {
-        background-color: #007bff;
-        color: white;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        width: 100%;
-        transition: background-color 0.3s;
-    }
-    input[type="submit"]:hover {
-        background-color: #0056b3;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 1s ease-out;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0.95;
+            transition: transform 0.3s ease-in-out;
+        }
+        .container:hover {
+            transform: translateY(-10px);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .form-group input[type="text"]:focus {
+            border-color: #a777e3;
+            outline: none;
+        }
+        .form-button {
+            width: 100%;
+            background-color: #6e8efb;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .form-button:hover {
+            background-color: #5a67d8;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>Book Input Form</h2>
-    <form action="#">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Your name...">
-        
-        <label for="userId">User ID:</label>
-        <input type="text" id="userId" name="userId" placeholder="Your user ID...">
-        
-        <label for="bookName">Book ID:</label>
-        <input type="text" id="bookName" name="bookName" placeholder="Book ID...">
-        
-        <input type="submit" value="Submit">
+    <h2 style="text-align: center; color: #333;">Add Student Details</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="roll">Roll Number:</label>
+            <input type="text" id="roll" name="roll">
+        </div>
+
+        <div class="form-group">
+            <label for="dept">Department:</label>
+            <input type="text" id="dept" name="dept">
+        </div>
+
+        <div class="form-group">
+            <label for="sem">Semester:</label>
+            <input type="text" id="sem" name="sem">
+        </div>
+
+        <div class="form-group">
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year">
+        </div>
+
+        <input type="submit" value="Submit" class="form-button">
     </form>
 </div>
 
