@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate PDF</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Generate PDF</h1>
+        <form id="pdfForm">
+            <label for="roll_no">Enter Roll Number:</label>
+            <input type="text" id="roll_no" name="roll_no" required>
+            <button type="submit">Generate PDF</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#pdfForm').submit(function(event) {
+                event.preventDefault(); // Prevent default form submission
+                
+                // Get the roll number from the form
+                var rollNo = $('#roll_no').val();
+                
+                // Make an AJAX request to generate the PDF
+                $.ajax({
+                    url: '/generate-pdf',
+                    type: 'POST',
+                    data: { roll_no: rollNo },
+                    success: function(response) {
+                        // Trigger download of the generated PDF
+                        var blob = new Blob([response]);
+                        var link = document.createElement('a');
+                        link.href = window.URL.createObjectURL(blob);
+                        link.download = 'student_information.pdf';
+                        link.click();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

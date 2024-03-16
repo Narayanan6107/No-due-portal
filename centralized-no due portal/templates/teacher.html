@@ -3,28 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment Completion Form</title>
+    <title>Teacher Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
         }
         .container {
-            margin-top: 20px;
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
             padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .form-group {
-            margin-bottom: 10px;
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            margin-bottom: 20px;
         }
         label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            color: #555;
         }
-        input, select {
+        input[type="text"] {
             width: 100%;
-            padding: 8px;
-            margin-bottom: 20px; /* Added margin for spacing */
-            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 20px;
             border: 1px solid #ccc;
+            border-radius: 4px;
         }
         button {
             background-color: #4CAF50;
@@ -33,37 +48,43 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            font-size: 16px;
         }
         button:hover {
             background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>Assignment Completion Status</h2>
-    <form action="/submit-assignment-status" method="post">
-        <div class="form-group">
-            <label for="studentName">Student Name:</label>
-            <input type="text" id="studentName" name="studentName" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="assignmentName">Assignment Name:</label>
-            <input type="text" id="assignmentName" name="assignmentName" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="status">Completion Status:</label>
-            <select id="status" name="status">
-                <option value="Complete">Complete</option>
-                <option value="Incomplete">Incomplete</option>
-            </select>
-        </div>
-        
-        <button type="submit">Submit</button>
+    <h2>Add Assignment Column</h2>
+    <form action="/teacher" method="post">
+        <label for="assignment_name">Assignment Name:</label>
+        <input type="text" id="assignment_name" name="assignment_name" required>
+        <button type="submit">Add Assignment</button>
     </form>
+
+    <h2>Update Assignment</h2>
+    <form action="/teacher" method="post">
+        <label for="column_name">Column Name:</label>
+        <input type="text" id="column_name" name="column_name" required>
+        <label for="roll_no">Roll Number:</label>
+        <input type="text" id="roll_no" name="roll_no" required>
+        <button type="submit">Update Assignment status</button>
+    </form>
+    <form action="" method="post">
+        <label for="roll_no_change">Roll Number:</label>
+        <input type="text" id="roll_no_change" name="roll_no_change" required>
+        <button type="submit">Authorize</button>
+    </form>
+
 </div>
 
 </body>

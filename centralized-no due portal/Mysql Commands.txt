@@ -7,6 +7,6 @@ show databases;
 create database flask;
 use flask;
 create table login (username varchar(50), password varchar(50), role varchar(20));
-create table addrbook(name varchar(50),watsapp_no varchar(50),door_no varchar(50),street varchar(50),city varchar(50),pincode varchar(50));
+
 
 
